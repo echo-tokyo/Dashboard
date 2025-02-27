@@ -1,0 +1,29 @@
+.inputContainer {
+  position: relative;
+  margin-top: 40px;
+  input {
+    padding: 15px 80px 15px 53px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    border-radius: 15px;
+    border: 1px solid rgb(212, 212, 212);
+    color: 1px solid rgb(168, 168, 168);
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+  }
+}
+.labelLeft {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.labelRight {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}

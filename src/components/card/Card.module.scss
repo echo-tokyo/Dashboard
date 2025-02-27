@@ -1,0 +1,43 @@
+.cards{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.card {
+  display: flex;
+  padding: 30px 20px;
+  justify-content: space-between;
+  background-color: white;
+  align-items: center;
+  border-radius: 5px;
+  position: relative;
+  transition: box-shadow 0.3s ease;
+  .border{
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: red;
+  }
+
+  .cardRight {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    p{
+      width: 12vw;
+    }
+    justify-content: flex-end;
+  }
+}
+.card:hover {
+  box-shadow: 0 4px 20px rgba(135, 135, 135, 0.2); /* Тень при наведении */
+}
+.status{
+  color: #1BDA9D;
+}

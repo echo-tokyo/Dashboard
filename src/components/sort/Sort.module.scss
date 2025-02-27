@@ -1,0 +1,20 @@
+.sort {
+  display: flex;
+  margin: 30px 20px 10px 20px;
+  justify-content: space-between;
+  .sortRight {
+    display: flex;
+    align-items: center;
+    margin-right: 155px;
+    gap: 10px;
+  }
+  .sortRightItem {
+    display: flex;
+    align-items: center;
+    width: 12vw;
+    gap: 10px;
+    img {
+      height: 5px;
+    }
+  }
+}
