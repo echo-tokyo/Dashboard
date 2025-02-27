@@ -1,0 +1,3 @@
+[submodule "frontend-interview-task-api"]
+	path = frontend-interview-task-api
+	url = git@development.kameleoon.net:oivanov/frontend-interview-task-api.git
