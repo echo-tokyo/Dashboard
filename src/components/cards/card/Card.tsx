@@ -10,7 +10,7 @@ const Card = ({test} : {test:Test}) => {
       <div className={styles.cardRight}>
         <p>{test.type}</p>
         <p className={styles.status}>{test.status}</p>
-        <p>{test.siteId}</p>
+        <p>{test.siteName}</p>
         <Button />
       </div>
     </div>

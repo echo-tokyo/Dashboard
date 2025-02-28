@@ -1,5 +1,5 @@
 import { Test } from '../../types/api'
-import Card from './card/card'
+import Card from './card/Card'
 import styles from './Cards.module.scss'
 
 

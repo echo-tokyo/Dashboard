@@ -1,19 +1,19 @@
-import { useEffect, useState } from 'react'
 import Input from '../../components/input/Input'
 import Sort from '../../components/sort/Sort'
 import styles from './Dashboard.module.scss'
-import axios from 'axios'
-import { Test } from '../../types/api'
 import Cards from '../../components/cards/Cards'
+import useGetData from '../../hooks/useGetData'
 
 const Dashboard = () => {
+  const {loading, error, tests} = useGetData()
+  
+  if (loading) {
+    return <div>Загрузка...</div>
+  }
 
-  const [tests, setTests] = useState<Test[]>([])
-  useEffect(() => {
-    axios.get('http://localhost:3100/tests').then((response) => {
-      setTests(response.data)
-    })
-  }, [])
+  if (error) {
+    return <div>{error}</div>
+  }
 
   return (
     <div className={styles.container}>
