@@ -4,20 +4,20 @@ const Sort = () => {
   return (
     <div className={styles.sort}>
       <div className={styles.sortRightItem}>
-        <h5>NAME</h5>
+        <h6>NAME</h6>
         {/* <img src="../../../public/Chevron.svg" alt="" /> */}
       </div>
       <div className={styles.sortRight}>
         <div className={styles.sortRightItem}>
-          <h5>TYPE</h5>
+          <h6>TYPE</h6>
           <img src="../../../public/Chevron.svg" alt="" />
         </div>
         <div className={styles.sortRightItem}>
-          <h5>STATUS</h5>
+          <h6>STATUS</h6>
           {/* <img src="../../../public/Chevron.svg" alt="" /> */}
         </div>
         <div className={styles.sortRightItem}>
-          <h5>SITE</h5>
+          <h6>SITE</h6>
           {/* <img src="../../../public/Chevron.svg" alt="" /> */}
         </div>
       </div>

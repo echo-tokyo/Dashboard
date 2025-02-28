@@ -3,21 +3,27 @@ body,html{
   background-color: #FAFAFA;
 }
 // fonts
-h2, h3, h4, span, p, h5{
+h1,h2{
+  font-family: "Montserrat", serif;
+}
+h2, h3, h4, span, p, h5, h6{
   font-family: 'Roboto', serif;
 }
 h1 {
-  font-family: "Montserrat", serif;
   font-size: 26px;
   font-weight: 700;
 }
 h2{
-  font-size: 15px;
+  font-size: 18px;
+  font-weight: 500;
 }
 h3{
-  font-size: 14px;
+  font-size: 15px;
 }
 h4{
+  font-size: 14px;
+}
+h5{
   font-size: 13px;
   font-weight: 500;
   color: #474747;
@@ -26,7 +32,7 @@ p{
   font-size: 12px;
   color: #5C5C5C;
 }
-h5{
+h6{
   color: #999999;
   font-weight: 500;
   font-size: 11px;
@@ -34,4 +40,9 @@ h5{
 span{
   font-size: 14px;
   color: rgb(168, 168, 168);
+}
+
+// buttons
+button{
+  cursor: pointer;
 }

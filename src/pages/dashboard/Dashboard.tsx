@@ -4,6 +4,7 @@ import styles from './Dashboard.module.scss'
 import Cards from '../../components/cards/Cards'
 import useGetData from '../../hooks/useGetData'
 import { useState } from 'react'
+import NoResults from '../../components/noResults/NoResults'
 
 const Dashboard = () => {
   const { loading, error, tests } = useGetData()
@@ -21,12 +22,22 @@ const Dashboard = () => {
     data.name.toLowerCase().includes(handleChange.toLowerCase()),
   )
 
+  const handleChangeReset = () => {
+    setHandleChange('')
+  }
+
   return (
     <div className={styles.container}>
       <h1>Dashboard</h1>
-      <Input setHandleChange={setHandleChange} />
-      <Sort />
-      <Cards tests={filteredData} />
+      <Input setHandleChange={setHandleChange} handleChange={handleChange} />
+      {filteredData.length !== 0 ? (
+        <>
+          <Sort />
+          <Cards tests={filteredData} />
+        </>
+      ) : (
+        <NoResults handleChangeReset={handleChangeReset} />
+      )}
     </div>
   )
 }

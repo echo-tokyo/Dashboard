@@ -14,7 +14,7 @@ const Card = ({ test }: { test: Test }) => {
         className={styles.border}
         style={{backgroundColor: randomColor}}
       ></div>
-      <h4>{test.name}</h4>
+      <h6>{test.name}</h6>
       <div className={styles.cardRight}>
         <p>{test.type}</p>
         <p className={styles.status}>{test.status}</p>
