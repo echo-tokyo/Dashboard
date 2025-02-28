@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { Test } from '../types/api'
+import { Test } from '../../types/api'
 
 const useGetData = () => {
   const [tests, setTests] = useState<Test[]>([])
@@ -29,11 +29,11 @@ const useGetData = () => {
         setLoading(false)
       }
     }
-    
+
     fetchData()
   }, [])
 
-  return {tests, loading, error}
+  return { tests, loading, error }
 }
 
 export default useGetData

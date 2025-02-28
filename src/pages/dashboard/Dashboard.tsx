@@ -1,12 +1,12 @@
-import Input from '../../components/input/Input'
-import Sort from '../../components/sort/Sort'
-import styles from './Dashboard.module.scss'
-import Cards from '../../components/cards/Cards'
-import useGetData from '../../hooks/useGetData'
 import { useState } from 'react'
+import Cards from '../../components/cards/Cards'
+import Input from '../../components/input/Input'
 import NoResults from '../../components/noResults/NoResults'
-import useSort from '../../hooks/useSort'
-import useFilter from '../../hooks/useFilter'
+import Sort from '../../components/sort/Sort'
+import useGetData from '../../hooks/api/useGetData'
+import useFilter from '../../hooks/core/useFilter'
+import useSort from '../../hooks/core/useSort'
+import styles from './Dashboard.module.scss'
 
 const Dashboard = () => {
   const { loading, error, tests } = useGetData()

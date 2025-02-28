@@ -12,7 +12,7 @@ const Sort = ({ setSortByField }: IPropsSort) => {
           <h6 onClick={() => setSortByField('type')}>TYPE</h6>
         </div>
         <div className={styles.sortRightItem}>
-          <h6>STATUS</h6>
+          <h6 onClick={() => setSortByField('status')}>STATUS</h6>
         </div>
         <div className={styles.sortRightItem}>
           <h6 onClick={() => setSortByField('siteName')}>SITE</h6>
