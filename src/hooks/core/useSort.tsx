@@ -3,8 +3,8 @@ import { UsePropsFilter } from '../../types/props'
 
 const useSort = ({ filteredData }: UsePropsFilter) => {
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc' | null>(null)
-  const [sortField, setSortField] = useState<'name' | 'type' | 'siteName' | 'status'>(
-    'name',
+  const [sortField, setSortField] = useState<'name' | 'type' | 'siteName' | 'status' | null>(
+    null,
   )
 
   const statusOrder = {
@@ -18,9 +18,9 @@ const useSort = ({ filteredData }: UsePropsFilter) => {
       const bIndex = statusOrder[sortOrder || 'asc'].indexOf(b.status);
       return aIndex - bIndex;
     } else {
-      if (sortOrder === 'asc') {
+      if (sortOrder === 'asc' && sortField !== null) {
         return a[sortField].localeCompare(b[sortField]);
-      } else if (sortOrder === 'desc') {
+      } else if (sortOrder === 'desc' && sortField !== null) {
         return b[sortField].localeCompare(a[sortField]);
       } else {
         return 0;
@@ -41,7 +41,7 @@ const useSort = ({ filteredData }: UsePropsFilter) => {
     }
   }
 
-  return { sortedData, setSortByField }
+  return { sortedData, setSortByField, sortField, sortOrder }
 }
 
 export default useSort

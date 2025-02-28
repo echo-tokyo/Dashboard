@@ -1,25 +1,21 @@
-import { IPropsSort } from '../../types/props'
-import styles from './Sort.module.scss'
+// Sort.tsx
+import { IPropsSort } from '../../types/props';
+import styles from './Sort.module.scss';
+import SortRightItem from './SortRightItem'
 
-const Sort = ({ setSortByField }: IPropsSort) => {
+const Sort = ({ setSortByField, sortField, sortOrder }: IPropsSort) => {
   return (
     <div className={styles.sort}>
       <div className={styles.sortRightItem}>
-        <h6 onClick={() => setSortByField('name')}>NAME</h6>
+        <SortRightItem field="name" sortField={sortField} sortOrder={sortOrder} setSortByField={setSortByField} />
       </div>
       <div className={styles.sortRight}>
-        <div className={styles.sortRightItem}>
-          <h6 onClick={() => setSortByField('type')}>TYPE</h6>
-        </div>
-        <div className={styles.sortRightItem}>
-          <h6 onClick={() => setSortByField('status')}>STATUS</h6>
-        </div>
-        <div className={styles.sortRightItem}>
-          <h6 onClick={() => setSortByField('siteName')}>SITE</h6>
-        </div>
+        <SortRightItem field="type" sortField={sortField} sortOrder={sortOrder} setSortByField={setSortByField} />
+        <SortRightItem field="status" sortField={sortField} sortOrder={sortOrder} setSortByField={setSortByField} />
+        <SortRightItem field="siteName" sortField={sortField} sortOrder={sortOrder} setSortByField={setSortByField} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Sort
+export default Sort;

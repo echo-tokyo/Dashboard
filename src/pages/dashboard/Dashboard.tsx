@@ -12,7 +12,7 @@ const Dashboard = () => {
   const { loading, error, tests } = useGetData()
   const [handleChange, setHandleChange] = useState<string>('')
   const { filteredData } = useFilter({ handleChange, tests })
-  const { sortedData, setSortByField } = useSort({ filteredData })
+  const { sortedData, setSortByField, sortField, sortOrder } = useSort({ filteredData })
 
   if (loading) {
     return <div>Загрузка...</div>
@@ -36,7 +36,7 @@ const Dashboard = () => {
       />
       {sortedData.length !== 0 ? (
         <>
-          <Sort setSortByField={setSortByField} />
+          <Sort setSortByField={setSortByField} sortField={sortField} sortOrder={sortOrder}/>
           <Cards tests={sortedData} />
         </>
       ) : (
