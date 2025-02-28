@@ -2,14 +2,15 @@ import { useState } from 'react'
 import { UsePropsFilter } from '../types/props'
 
 const useSort = ({ filteredData }: UsePropsFilter) => {
-  const [sortOrder, setSortOrder] = useState<string | null>(null)
-
-  const sortedData = [...filteredData].sort((a, b) => {
-     if(sortOrder === 'asc'){
-      return a.name.localeCompare(b.name)
-    } else if (sortOrder === 'desc'){
-      return b.name.localeCompare(a.name)
-    } else{
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc' | null>(null)
+  const [sortField, setSortField] = useState<'name' | 'type' | 'siteName'>('name')
+  
+  const sortedData = filteredData.sort((a, b) => {
+    if (sortOrder === 'asc') {
+      return a[sortField].localeCompare(b[sortField])
+    } else if (sortOrder === 'desc') {
+      return b[sortField].localeCompare(a[sortField])
+    } else {
       return 0
     }
   })
@@ -18,7 +19,16 @@ const useSort = ({ filteredData }: UsePropsFilter) => {
     setSortOrder((prevOrder) => (prevOrder === 'asc' ? 'desc' : 'asc'))
   }
 
-  return { sortedData, toggleSortOrder, sortOrder }
+  const setSortByField = (field: 'name' | 'type' | 'siteName') => {
+    if (field === sortField) {
+      toggleSortOrder()
+    } else {
+      setSortField(field)
+      setSortOrder('asc')
+    }
+  }
+
+  return { sortedData, setSortByField }
 }
 
 export default useSort

@@ -11,8 +11,7 @@ export interface IPropsNoResults {
 }
 
 export interface IPropsSort {
-  toggleSortOrder: () => void
-  sortedData: Test[]
+  setSortByField: (field: "name" | "type" | "siteName") => void
 }
 
 export interface usePropsFilter {
