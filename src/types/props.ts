@@ -1,9 +1,9 @@
 import { Test } from './api'
 
-type TSortField = 'name' | 'type' | 'siteName' | 'status' | null;
+type TSortField = 'name' | 'type' | 'siteName' | 'status' | null
 type TSetSortByField = (field: 'name' | 'type' | 'siteName' | 'status') => void
-type TSortOrder = 'asc' | 'desc' | null;
-type TField = "name" | "type" | "siteName" | "status"
+type TSortOrder = 'asc' | 'desc' | null
+type TField = 'name' | 'type' | 'siteName' | 'status'
 
 export interface IPropsInput {
   setHandleChange: (value: string) => void
@@ -30,7 +30,7 @@ export interface UsePropsFilter {
   filteredData: Test[]
 }
 
-export interface IGetClassIcon{
+export interface IGetClassIcon {
   sortField: TSortField
   field: TField
   sortOrder: TSortOrder
