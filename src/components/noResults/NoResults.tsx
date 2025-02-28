@@ -1,9 +1,9 @@
 import React from 'react'
 import Button from '../button/Button'
-import { INoResultsProps } from '../../types/props'
 import styles from './NoResults.module.scss'
+import { IPropsNoResults } from '../../types/props'
 
-const NoResults: React.FC<INoResultsProps> = ({ handleChangeReset }) => {
+const NoResults: React.FC<IPropsNoResults> = ({ handleChangeReset }) => {
   return (
     <div className={styles.noResults}>
       <h2>Your search did not match any results.</h2>

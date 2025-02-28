@@ -5,10 +5,14 @@ import Cards from '../../components/cards/Cards'
 import useGetData from '../../hooks/useGetData'
 import { useState } from 'react'
 import NoResults from '../../components/noResults/NoResults'
+import useSort from '../../hooks/useSort'
+import useFilter from '../../hooks/useFilter'
 
 const Dashboard = () => {
   const { loading, error, tests } = useGetData()
   const [handleChange, setHandleChange] = useState<string>('')
+  const { filteredData } = useFilter({ handleChange, tests })
+  const { sortedData, toggleSortOrder } = useSort({ filteredData })
 
   if (loading) {
     return <div>Загрузка...</div>
@@ -17,10 +21,6 @@ const Dashboard = () => {
   if (error) {
     return <div>{error}</div>
   }
-
-  const filteredData = tests.filter((data) =>
-    data.name.toLowerCase().includes(handleChange.toLowerCase()),
-  )
 
   const handleChangeReset = () => {
     setHandleChange('')
@@ -32,12 +32,12 @@ const Dashboard = () => {
       <Input
         setHandleChange={setHandleChange}
         handleChange={handleChange}
-        testsCount={filteredData.length}
+        testsCount={sortedData.length}
       />
-      {filteredData.length !== 0 ? (
+      {sortedData.length !== 0 ? (
         <>
-          <Sort />
-          <Cards tests={filteredData} />
+          <Sort toggleSortOrder={toggleSortOrder} sortedData={sortedData} />
+          <Cards tests={sortedData} />
         </>
       ) : (
         <NoResults handleChangeReset={handleChangeReset} />
