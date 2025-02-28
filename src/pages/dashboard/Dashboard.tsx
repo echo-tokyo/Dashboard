@@ -29,7 +29,11 @@ const Dashboard = () => {
   return (
     <div className={styles.container}>
       <h1>Dashboard</h1>
-      <Input setHandleChange={setHandleChange} handleChange={handleChange} />
+      <Input
+        setHandleChange={setHandleChange}
+        handleChange={handleChange}
+        testsCount={filteredData.length}
+      />
       {filteredData.length !== 0 ? (
         <>
           <Sort />
