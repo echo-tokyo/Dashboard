@@ -46,3 +46,7 @@ export interface ISortRightItemProps {
 export interface IPropsButton {
   styles: 'Finalize' | 'Results'
 }
+
+export interface IPropsResult {
+  type: 'results' | 'finalize';
+}
