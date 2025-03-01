@@ -1,4 +1,3 @@
-// Sort.tsx
 import { IPropsSort } from '../../types/props'
 import styles from './Sort.module.scss'
 import SortRightItem from './SortRightItem'

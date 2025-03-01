@@ -1,16 +1,28 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import styles from '../results/Results.module.scss' 
 import Chevron from '../../../public/Chevron'
+import useGetDataById from '../../hooks/api/useGetDataById'
 
 const Finalize = () => {
-  const { id } = useParams()
   const nav = useNavigate()
-  console.log(id)
+  const { id } = useParams()
+  const { loading, error, data } = useGetDataById(id)
+
+  console.log('finalize')
+
+  if (loading) {
+    return <div className={styles.container}>Loading...</div>
+  }
+
+  if (error) {
+    return <div className={styles.container}>{String(error)}</div>
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.title}>
         <h1>Finalize</h1>
-        <h4>Spring promotion</h4>
+        <h4>{data?.name}</h4>
       </div>
       <div className={styles.back} onClick={() => nav('/')}>
         <Chevron />

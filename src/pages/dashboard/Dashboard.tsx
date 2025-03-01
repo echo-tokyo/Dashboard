@@ -10,20 +10,23 @@ import styles from './Dashboard.module.scss'
 
 const Dashboard = () => {
   const { loading, error, tests } = useGetData()
-  const [handleChange, setHandleChange] = useState<string>('')
+  const [handleChange, setHandleChange] = useState('')
   const { filteredData } = useFilter({ handleChange, tests })
-  const { sortedData, setSortByField, sortField, sortOrder } = useSort({ filteredData })
+  const { sortedData, setSortByField, sortField, sortOrder } = useSort({
+    filteredData,
+  })
+
+  console.log('dashboard')
+  const handleChangeReset = () => {
+    setHandleChange('')
+  }
 
   if (loading) {
-    return <div>Загрузка...</div>
+    return <div className={styles.container}>Loading...</div>
   }
 
   if (error) {
-    return <div>{error}</div>
-  }
-
-  const handleChangeReset = () => {
-    setHandleChange('')
+    return <div className={styles.container}>{error}</div>
   }
 
   return (
@@ -36,7 +39,11 @@ const Dashboard = () => {
       />
       {sortedData.length !== 0 ? (
         <>
-          <Sort setSortByField={setSortByField} sortField={sortField} sortOrder={sortOrder}/>
+          <Sort
+            setSortByField={setSortByField}
+            sortField={sortField}
+            sortOrder={sortOrder}
+          />
           <Cards tests={sortedData} />
         </>
       ) : (

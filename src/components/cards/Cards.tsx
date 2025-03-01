@@ -3,7 +3,6 @@ import Card from './Card'
 import styles from './Cards.module.scss'
 
 const Cards = ({ tests }: { tests: Test[] }) => {
-  console.log(tests)
   return (
     <div className={styles.cards}>
       {tests.map((test) => (
