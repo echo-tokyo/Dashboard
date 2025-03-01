@@ -8,7 +8,7 @@ const NoResults: React.FC<IPropsNoResults> = ({ handleChangeReset }) => {
     <div className={styles.noResults}>
       <h2>Your search did not match any results.</h2>
       <div onClick={handleChangeReset}>
-        <Button styles={'results'} />
+        <Button styles={'Results'} />
       </div>
     </div>
   )

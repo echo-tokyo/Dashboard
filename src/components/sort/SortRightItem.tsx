@@ -1,4 +1,3 @@
-// SortRightItem.tsx
 import React from 'react'
 import getClassIcon from '../../hooks/ui/getClassIcon'
 import styles from './Sort.module.scss'

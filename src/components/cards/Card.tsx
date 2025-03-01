@@ -1,11 +1,13 @@
-import useRandomColor from '../../../hooks/ui/useRandomColor'
-import useRemovePrefixes from '../../../hooks/ui/useRemovePrefixes'
-import useStatusColor from '../../../hooks/ui/useStatusColor'
-import { Test } from '../../../types/api'
-import Button from '../../button/Button'
-import styles from '../Cards.module.scss'
+import { useNavigate } from 'react-router-dom'
+import useRandomColor from '../../hooks/ui/useRandomColor'
+import useRemovePrefixes from '../../hooks/ui/useRemovePrefixes'
+import useStatusColor from '../../hooks/ui/useStatusColor'
+import { Test } from '../../types/api'
+import Button from '../button/Button'
+import styles from './Cards.module.scss'
 
 const Card = ({ test }: { test: Test }) => {
+  const nav = useNavigate()
   const { cleanedUrl } = useRemovePrefixes(test)
   const { color: randomColor } = useRandomColor()
   const { statusColor } = useStatusColor()
@@ -27,9 +29,13 @@ const Card = ({ test }: { test: Test }) => {
         </p>
         <p>{cleanedUrl}</p>
         {test.status === 'DRAFT' ? (
-          <Button styles={'finalize'} />
+          <div onClick={() => nav(`/finalize/${test.id}`)}>
+            <Button styles={'Finalize'} />
+          </div>
         ) : (
-          <Button styles={'results'} />
+          <div onClick={() => nav(`/results/${test.id}`)}>
+            <Button styles={'Results'} />
+          </div>
         )}
       </div>
     </div>
