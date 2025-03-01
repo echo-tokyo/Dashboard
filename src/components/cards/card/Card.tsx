@@ -1,4 +1,4 @@
-import useRandomColor from '../../../hooks/ui/useRanomColor'
+import useRandomColor from '../../../hooks/ui/useRandomColor'
 import useRemovePrefixes from '../../../hooks/ui/useRemovePrefixes'
 import useStatusColor from '../../../hooks/ui/useStatusColor'
 import { Test } from '../../../types/api'
@@ -26,7 +26,11 @@ const Card = ({ test }: { test: Test }) => {
           {test.status}
         </p>
         <p>{cleanedUrl}</p>
-        <Button />
+        {test.status === 'DRAFT' ? (
+          <Button styles={'finalize'} />
+        ) : (
+          <Button styles={'results'} />
+        )}
       </div>
     </div>
   )

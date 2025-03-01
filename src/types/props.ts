@@ -42,3 +42,7 @@ export interface ISortRightItemProps {
   sortOrder: TSortOrder
   setSortByField: TSetSortByField
 }
+
+export interface IPropsButton {
+  styles: 'finalize' | 'results'
+}
